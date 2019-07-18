@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SportsStore.Models;
 using SportsStore.Models.ViewModels;
 using System;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace SportsStore.Controllers
-{
+{    
     public class ProductController : Controller
     {
         private IProductRepository repository;
@@ -17,7 +18,7 @@ namespace SportsStore.Controllers
         {
             repository = repo;            
         }
-
+       
         public ViewResult List(string category, int productPage = 1)
         {
             return View(new ProductsListViewModel
